@@ -1,0 +1,36 @@
+export const BALANCE = {
+  fps: 60,
+  gravity: 0.85,
+  friction: 0.82,
+  floorY: 0, // relative, set by game
+  walkSpeed: 3.2,
+  runSpeed: 5.6,
+  backWalkSpeed: 2.6,
+  jumpVelocity: -14.5,
+  doubleJumpVelocity: -12,
+  dashSpeed: 9,
+  dashDuration: 14,
+  dashBackIFrames: 8,
+  dashCooldown: 18,
+  blockChipPercent: 0.18,
+  hitstopLight: 6,
+  hitstopHeavy: 10,
+  hitstopSpecial: 14,
+  hitstopUltimate: 22,
+  screenShakeLight: 3,
+  screenShakeHeavy: 7,
+  screenShakeUltimate: 14,
+  comboDecay: 0.85,
+  comboWindow: 42, // frames to continue combo
+  inputBufferFrames: 8,
+  parryWindow: 6,
+  parryStun: 22,
+  throwRange: 56,
+  throwDamage: 14,
+  superCost: 100,
+  roundTime: 99,
+  stageWidth: 1400,
+  cameraLerp: 0.12,
+};
+
+export type Difficulty = 'novice' | 'veteran' | 'nightmare';

@@ -1,0 +1,113 @@
+.hud-root {
+  position: absolute; inset: 0; pointer-events: none; z-index: 10;
+  padding: 16px 20px;
+  display: flex; flex-direction: column; justify-content: space-between;
+}
+.hud-top {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: start;
+}
+.hud-player {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.hud-player.right { align-items: flex-end; }
+.hud-name-row {
+  display: flex; align-items: center; gap: 10px;
+}
+.hud-player.right .hud-name-row { flex-direction: row-reverse; }
+.hud-faction-icon {
+  width: 28px; height: 28px; display: grid; place-items: center;
+  background: var(--ink-panel); border: 1px solid var(--line);
+  transform: skewX(-8deg);
+}
+.hud-faction-icon svg { transform: skewX(8deg); }
+.hud-name {
+  font-family: var(--font-display); font-weight: 800; font-size: 18px;
+  letter-spacing: 0.04em; text-transform: uppercase; line-height: 1;
+}
+.hud-subtitle {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--bone-muted); margin-top: 2px;
+}
+.health-wrap {
+  width: 100%; max-width: 420px; height: 22px;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 3px;
+  display: flex; gap: 2px;
+  transform: skewX(-6deg);
+  backdrop-filter: blur(6px);
+}
+.hud-player.right .health-wrap { transform: skewX(6deg); }
+.health-track {
+  flex: 1; position: relative; overflow: hidden; background: #0A0A0E;
+}
+.health-fill {
+  position: absolute; inset: 0 0 0 0;
+  transform-origin: left;
+  transition: transform 220ms cubic-bezier(0.22,1,0.36,1);
+}
+.health-fill.right { transform-origin: right; }
+.health-ghost {
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.22);
+  transform-origin: left;
+  transition: transform 600ms ease-out;
+}
+.health-ghost.right { transform-origin: right; }
+.meter-wrap {
+  width: 100%; max-width: 420px; height: 10px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 2px;
+  display: flex; transform: skewX(-6deg);
+}
+.hud-player.right .meter-wrap { transform: skewX(6deg); }
+.meter-fill {
+  height: 100%; transition: width 200ms ease;
+}
+.hud-center {
+  display: flex; flex-direction: column; align-items: center; gap: 8px; padding-top: 2px;
+}
+.timer-box {
+  width: 84px; height: 52px;
+  background: var(--ink-panel);
+  border: 1px solid var(--line-strong);
+  display: grid; place-items: center;
+  box-shadow: var(--shadow-panel);
+  position: relative;
+}
+.timer-box::after {
+  content: ''; position: absolute; inset: 0;
+  border-top: 2px solid var(--blood); opacity: 0.9;
+}
+.timer-value {
+  font-family: var(--font-mono); font-weight: 700; font-size: 26px; letter-spacing: -0.04em;
+  color: var(--bone);
+}
+.round-pips { display: flex; gap: 6px; }
+.pip {
+  width: 10px; height: 10px; transform: rotate(45deg);
+  border: 1px solid rgba(255,255,255,0.2); background: transparent;
+}
+.pip.won { background: var(--blood); border-color: var(--blood); box-shadow: 0 0 8px rgba(230,57,59,0.6); }
+.combo-indicator {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  font-family: var(--font-display); font-weight: 900; font-size: 28px; letter-spacing: 0.04em;
+  color: var(--cyber-amber);
+  text-shadow: 0 2px 20px rgba(255,176,32,0.5), 0 0 0 rgba(0,0,0,1);
+  pointer-events: none;
+}
+.combo-indicator.left { left: 18%; }
+.combo-indicator.right { right: 18%; text-align: right; }
+.controls-hint {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; align-items: center;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  background: rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.08);
+  padding: 6px 12px; backdrop-filter: blur(8px);
+}
+.controls-hint kbd {
+  background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18); border-bottom-width: 2px;
+  padding: 2px 6px; border-radius: 4px; font-size: 10px; color: var(--bone);
+}
